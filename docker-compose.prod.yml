@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:16
+    env_file:
+      - ./server/.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    build: ./server
+    env_file:
+      - ./server/.env
+    ports:
+      - "127.0.0.1:4001:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:

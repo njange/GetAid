@@ -14,10 +14,14 @@ function verifyToken(token) {
   return jwt.verify(token, process.env.JWT_SECRET);
 }
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const cookieOptions = {
   httpOnly: true,
-  sameSite: "lax",
-  secure: process.env.NODE_ENV === "production",
+  // Frontend (Vercel) and backend (VPS) are different sites in production,
+  // so the cookie needs SameSite=None to be sent on cross-site requests.
+  sameSite: isProduction ? "none" : "lax",
+  secure: isProduction,
   maxAge: COOKIE_MAX_AGE_MS,
 };
 
