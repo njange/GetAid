@@ -7,12 +7,12 @@ export function AuthIllustration() {
     <div className="auth-illustration">
       <div className="auth-illustration-art">
         <svg viewBox="0 0 320 340" role="img" aria-label="Illustration of a person meditating, wearing a shirt with a first aid cross">
-          <circle cx="160" cy="112" r="80" fill="none" stroke="var(--auth-green)" strokeWidth="2" strokeDasharray="1 11" opacity="0.7" />
+          <circle cx="160" cy="112" r="80" fill="none" stroke="var(--green)" strokeWidth="2" strokeDasharray="1 11" opacity="0.7" />
 
-          <path d="M96,52 q-18,-8 -10,-28" stroke="var(--auth-green-dark)" strokeWidth="3" fill="none" strokeLinecap="round" />
-          <path d="M224,52 q18,-8 10,-28" stroke="var(--auth-green-dark)" strokeWidth="3" fill="none" strokeLinecap="round" />
-          <circle cx="256" cy="54" r="3" fill="var(--auth-green-dark)" opacity="0.7" />
-          <circle cx="60" cy="130" r="3" fill="var(--auth-green-dark)" opacity="0.7" />
+          <path d="M96,52 q-18,-8 -10,-28" stroke="var(--green-dark)" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <path d="M224,52 q18,-8 10,-28" stroke="var(--green-dark)" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <circle cx="256" cy="54" r="3" fill="var(--green-dark)" opacity="0.7" />
+          <circle cx="60" cy="130" r="3" fill="var(--green-dark)" opacity="0.7" />
 
           <path d="M118,192 Q68,184 66,128" stroke="#14110f" strokeWidth="22" fill="none" strokeLinecap="round" />
           <path d="M118,192 Q68,184 66,128" stroke="#f3c9a4" strokeWidth="16" fill="none" strokeLinecap="round" />
@@ -31,11 +31,11 @@ export function AuthIllustration() {
           <circle cx="95" cy="276" r="10" fill="#f3c9a4" stroke="#14110f" strokeWidth="3" />
           <circle cx="225" cy="276" r="10" fill="#f3c9a4" stroke="#14110f" strokeWidth="3" />
 
-          <rect x="100" y="156" width="120" height="112" rx="50" fill="var(--auth-green)" stroke="#14110f" strokeWidth="4" />
+          <rect x="100" y="156" width="120" height="112" rx="50" fill="var(--green)" stroke="#14110f" strokeWidth="4" />
 
           <circle cx="160" cy="205" r="18" fill="#fff" stroke="#14110f" strokeWidth="3" />
-          <rect x="156" y="194" width="8" height="22" rx="3" fill="var(--auth-cross)" />
-          <rect x="149" y="201" width="22" height="8" rx="3" fill="var(--auth-cross)" />
+          <rect x="156" y="194" width="8" height="22" rx="3" fill="var(--red)" />
+          <rect x="149" y="201" width="22" height="8" rx="3" fill="var(--red)" />
 
           <rect x="150" y="144" width="20" height="16" fill="#f3c9a4" stroke="#14110f" strokeWidth="3" />
 
@@ -48,20 +48,20 @@ export function AuthIllustration() {
           <path d="M148,126 q12,10 24,0" stroke="#14110f" strokeWidth="3" fill="none" strokeLinecap="round" />
 
           <circle cx="36" cy="54" r="26" fill="#fff" stroke="#14110f" strokeWidth="3" />
-          <rect x="32" y="44" width="8" height="20" rx="2" fill="var(--auth-cross)" />
-          <rect x="26" y="50" width="20" height="8" rx="2" fill="var(--auth-cross)" />
+          <rect x="32" y="44" width="8" height="20" rx="2" fill="var(--red)" />
+          <rect x="26" y="50" width="20" height="8" rx="2" fill="var(--red)" />
 
           <circle cx="286" cy="196" r="26" fill="#fff" stroke="#14110f" strokeWidth="3" />
-          <circle cx="280" cy="189" r="8" fill="var(--auth-green-dark)" />
-          <circle cx="292" cy="189" r="8" fill="var(--auth-green-dark)" />
-          <rect x="277" y="186" width="16" height="16" fill="var(--auth-green-dark)" transform="rotate(45 286 194)" />
+          <circle cx="280" cy="189" r="8" fill="var(--green-dark)" />
+          <circle cx="292" cy="189" r="8" fill="var(--green-dark)" />
+          <rect x="277" y="186" width="16" height="16" fill="var(--green-dark)" transform="rotate(45 286 194)" />
         </svg>
 
         <div className="auth-card">
           <div className="auth-card-icon">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <rect x="9" y="3" width="6" height="18" rx="2" fill="var(--auth-cross)" />
-              <rect x="3" y="9" width="18" height="6" rx="2" fill="var(--auth-cross)" />
+              <rect x="9" y="3" width="6" height="18" rx="2" fill="var(--red)" />
+              <rect x="3" y="9" width="18" height="6" rx="2" fill="var(--red)" />
             </svg>
           </div>
           <div className="auth-card-body">
@@ -76,7 +76,7 @@ export function AuthIllustration() {
                 cy="20"
                 r={RADIUS}
                 fill="none"
-                stroke="var(--auth-green-dark)"
+                stroke="var(--green-dark)"
                 strokeWidth="4"
                 strokeDasharray={CIRCUMFERENCE}
                 strokeDashoffset={CIRCUMFERENCE * (1 - PROGRESS)}

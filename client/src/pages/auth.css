@@ -1,20 +1,3 @@
-:root {
-  --auth-green-bg: #eaf3e4;
-  --auth-green: #9fcf84;
-  --auth-green-dark: #4c7a3f;
-  --auth-cross: #d9584c;
-  --text-muted: #8a8792;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --auth-green-bg: #1b2519;
-    --auth-green: #4f7a3f;
-    --auth-green-dark: #8fcf78;
-    --text-muted: #9ca3af;
-  }
-}
-
 .auth-page {
   display: flex;
   align-items: stretch;
@@ -46,7 +29,7 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  color: var(--auth-green-dark);
+  color: var(--green-dark);
 }
 
 .auth-title {
@@ -195,7 +178,7 @@
   justify-content: center;
   margin: 16px 16px 16px 0;
   border-radius: 28px;
-  background: var(--auth-green-bg);
+  background: var(--green-bg);
   position: relative;
   overflow: hidden;
 }
@@ -241,7 +224,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: var(--auth-green-bg);
+  background: var(--green-bg);
   display: flex;
   align-items: center;
   justify-content: center;
