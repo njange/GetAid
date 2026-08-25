@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../context/AuthContext";
-import "./auth.css";
+import { AuthLayout } from "../components/AuthLayout";
 
 export function LoginPage() {
   const { loginWithGoogle } = useAuth();
@@ -20,17 +20,21 @@ export function LoginPage() {
   }
 
   return (
-    <section className="auth-page">
-      <h1>First Aid</h1>
-      <p>Sign in to continue</p>
-
+    <AuthLayout
+      eyebrow="First Aid"
+      title="Welcome back!"
+      subtitle="Sign in to keep building the skills and confidence to help when it counts."
+    >
       {error && <p className="auth-error">{error}</p>}
 
-      <GoogleLogin
-        text="continue_with"
-        onSuccess={handleGoogleSuccess}
-        onError={() => setError("Google sign-in failed")}
-      />
+      <div className="auth-social">
+        <GoogleLogin
+          text="continue_with"
+          shape="pill"
+          onSuccess={handleGoogleSuccess}
+          onError={() => setError("Google sign-in failed")}
+        />
+      </div>
 
       <div className="auth-divider">or</div>
 
@@ -41,6 +45,10 @@ export function LoginPage() {
       >
         Continue with email
       </button>
-    </section>
+
+      <p className="auth-links">
+        Already have an account? <Link to="/login/email">Log in with email</Link>
+      </p>
+    </AuthLayout>
   );
 }

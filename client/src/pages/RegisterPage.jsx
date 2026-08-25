@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "./auth.css";
+import { AuthLayout } from "../components/AuthLayout";
 
 export function RegisterPage() {
   const { register } = useAuth();
@@ -29,9 +29,11 @@ export function RegisterPage() {
   }
 
   return (
-    <section className="auth-page">
-      <h1>Create your account</h1>
-
+    <AuthLayout
+      eyebrow="First Aid"
+      title="Create your account"
+      subtitle="Start learning practical first aid and wellness skills today."
+    >
       {error && <p className="auth-error">{error}</p>}
 
       <form className="auth-form" onSubmit={handleSubmit}>
@@ -40,6 +42,7 @@ export function RegisterPage() {
           <input
             name="name"
             type="text"
+            placeholder="Jane Doe"
             autoComplete="name"
             value={form.name}
             onChange={handleChange}
@@ -51,6 +54,7 @@ export function RegisterPage() {
           <input
             name="email"
             type="email"
+            placeholder="you@example.com"
             autoComplete="email"
             value={form.email}
             onChange={handleChange}
@@ -62,6 +66,7 @@ export function RegisterPage() {
           <input
             name="password"
             type="password"
+            placeholder="At least 8 characters"
             autoComplete="new-password"
             minLength={8}
             value={form.password}
@@ -77,6 +82,6 @@ export function RegisterPage() {
       <p className="auth-links">
         Already have an account? <Link to="/login/email">Log in</Link>
       </p>
-    </section>
+    </AuthLayout>
   );
 }

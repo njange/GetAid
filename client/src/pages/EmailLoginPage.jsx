@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "./auth.css";
+import { AuthLayout } from "../components/AuthLayout";
 
 export function EmailLoginPage() {
   const { login } = useAuth();
@@ -29,9 +29,11 @@ export function EmailLoginPage() {
   }
 
   return (
-    <section className="auth-page">
-      <h1>Log in</h1>
-
+    <AuthLayout
+      eyebrow="First Aid"
+      title="Log in"
+      subtitle="Enter your details to get back to your training."
+    >
       {error && <p className="auth-error">{error}</p>}
 
       <form className="auth-form" onSubmit={handleSubmit}>
@@ -40,6 +42,7 @@ export function EmailLoginPage() {
           <input
             name="email"
             type="email"
+            placeholder="you@example.com"
             autoComplete="email"
             value={form.email}
             onChange={handleChange}
@@ -51,6 +54,7 @@ export function EmailLoginPage() {
           <input
             name="password"
             type="password"
+            placeholder="••••••••"
             autoComplete="current-password"
             value={form.password}
             onChange={handleChange}
@@ -65,6 +69,6 @@ export function EmailLoginPage() {
       <p className="auth-links">
         New here? <Link to="/register">Create an account</Link>
       </p>
-    </section>
+    </AuthLayout>
   );
 }
