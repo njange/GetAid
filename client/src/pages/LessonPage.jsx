@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { AppHeader } from "../components/AppHeader";
+import { useProgress } from "../context/ProgressContext";
 import { getLesson } from "../data/courses";
 import "./app.css";
 
@@ -30,6 +32,8 @@ function LessonBlock({ block }) {
 export function LessonPage() {
   const { courseSlug, lessonSlug } = useParams();
   const { course, lesson, index } = getLesson(courseSlug, lessonSlug);
+  const { isLessonComplete, completeLesson } = useProgress();
+  const [marking, setMarking] = useState(false);
 
   if (!course || !lesson) {
     return <Navigate to="/" replace />;
@@ -37,6 +41,17 @@ export function LessonPage() {
 
   const prevLesson = course.lessons[index - 1];
   const nextLesson = course.lessons[index + 1];
+  const completed = isLessonComplete(courseSlug, lessonSlug);
+
+  async function handleMarkComplete() {
+    if (marking) return;
+    setMarking(true);
+    try {
+      await completeLesson(courseSlug, lessonSlug);
+    } finally {
+      setMarking(false);
+    }
+  }
 
   return (
     <div className="app-page">
@@ -55,7 +70,9 @@ export function LessonPage() {
                 to={`/courses/${course.slug}/lessons/${l.slug}`}
                 className={`lesson-nav-item${l.slug === lessonSlug ? " active" : ""}`}
               >
-                <span className="lesson-nav-index">{i + 1}</span>
+                <span className="lesson-nav-index">
+                  {isLessonComplete(course.slug, l.slug) ? "✓" : i + 1}
+                </span>
                 <span>{l.title}</span>
               </Link>
             ))}
@@ -69,6 +86,15 @@ export function LessonPage() {
             <p className="lesson-meta">
               Lesson {index + 1} of {course.lessons.length} · {lesson.minutes} min read
             </p>
+
+            <button
+              type="button"
+              className={`lesson-complete-button${completed ? " completed" : ""}`}
+              onClick={handleMarkComplete}
+              disabled={marking}
+            >
+              {completed ? "✓ Lesson complete" : marking ? "Marking complete…" : "Mark as complete"}
+            </button>
 
             <div className="lesson-body">
               {lesson.body.map((block, i) => (

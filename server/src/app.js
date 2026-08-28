@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const healthRouter = require("./routes/health");
 const authRouter = require("./routes/auth");
+const progressRouter = require("./routes/progress");
 const { notFoundHandler, errorHandler } = require("./middleware/errorHandler");
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 app.use(healthRouter);
 app.use(authRouter);
+app.use(progressRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
