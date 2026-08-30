@@ -4,6 +4,7 @@ export const courses = [
     title: "CPR Basics",
     tagline: "Restore breathing and circulation when someone collapses.",
     icon: "cpr",
+    category: "Essential Skills",
     lessons: [
       {
         slug: "when-to-start",
@@ -83,6 +84,7 @@ export const courses = [
     title: "Choking Response",
     tagline: "Clear a blocked airway before oxygen runs out.",
     icon: "choking",
+    category: "Essential Skills",
     lessons: [
       {
         slug: "recognizing-choking",
@@ -158,6 +160,7 @@ export const courses = [
     title: "Burns Care",
     tagline: "Cool the burn, protect the skin, know when to escalate.",
     icon: "burns",
+    category: "Injury Care",
     lessons: [
       {
         slug: "assessing-severity",
@@ -233,6 +236,7 @@ export const courses = [
     title: "Wounds & Bleeding",
     tagline: "Clean minor cuts and control serious bleeding.",
     icon: "wounds",
+    category: "Injury Care",
     lessons: [
       {
         slug: "cleaning-a-minor-wound",
@@ -308,6 +312,7 @@ export const courses = [
     title: "Drowning Response",
     tagline: "Rescue safely and support breathing afterward.",
     icon: "drowning",
+    category: "Essential Skills",
     lessons: [
       {
         slug: "water-rescue-safety",
@@ -381,6 +386,7 @@ export const courses = [
     title: "Fractures & Sprains",
     tagline: "Support the injury and avoid making it worse.",
     icon: "fractures",
+    category: "Injury Care",
     lessons: [
       {
         slug: "spotting-a-fracture",

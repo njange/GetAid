@@ -21,6 +21,47 @@
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
+  /* Stitch design tokens */
+  --font-body: 'Inter', var(--sans);
+  --font-label: 'Atkinson Hyperlegible Next', 'Inter', var(--sans);
+
+  --background: #f8f9fa;
+  --on-background: #191c1d;
+  --surface: #f8f9fa;
+  --surface-dim: #d9dadb;
+  --surface-bright: #f8f9fa;
+  --surface-variant: #e1e3e4;
+  --on-surface: #191c1d;
+  --on-surface-variant: #5b403d;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f4f5;
+  --surface-container: #edeeef;
+  --surface-container-high: #e7e8e9;
+  --surface-container-highest: #e1e3e4;
+  --outline: #8f6f6c;
+  --outline-variant: #e4beba;
+
+  --primary: #af101a;
+  --surface-tint: #ba1a20;
+  --on-primary: #ffffff;
+  --primary-container: #d32f2f;
+  --on-primary-container: #fff2f0;
+
+  --secondary: #4c616c;
+  --on-secondary: #ffffff;
+  --secondary-container: #cfe6f2;
+  --on-secondary-container: #526772;
+
+  --tertiary: #005c8f;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #0075b5;
+  --on-tertiary-container: #eef5ff;
+
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -64,6 +105,14 @@
 
 body {
   margin: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 #root {
