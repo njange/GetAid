@@ -57,8 +57,8 @@ export function LessonPage() {
     <div className="app-page">
       <AppHeader />
       <main className="lesson-main">
-        <Link to="/" className="lesson-breadcrumb">
-          ← Back to courses
+        <Link to={`/courses/${course.slug}`} className="lesson-breadcrumb">
+          ← Back to {course.title}
         </Link>
 
         <div className="lesson-layout">

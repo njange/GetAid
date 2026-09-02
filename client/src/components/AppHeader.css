@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   padding: 12px 16px;
   background: var(--surface);
   border-bottom: 1px solid var(--surface-container-high);
@@ -19,6 +19,7 @@
   gap: 10px;
   text-decoration: none;
   min-width: 0;
+  flex-shrink: 0;
 }
 
 .app-avatar {
@@ -46,35 +47,50 @@
   text-overflow: ellipsis;
 }
 
-.app-header-user {
+.app-header-nav {
+  display: none;
+  align-items: center;
+  gap: 28px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.app-header-nav-link {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  padding: 4px 2px;
+  transition: color 0.2s;
+}
+
+.app-header-nav-link:hover {
+  color: var(--on-surface);
+}
+
+.app-header-nav-link.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.app-header-search {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.app-header-greeting {
-  font-size: 13px;
-  color: var(--on-surface-variant);
-}
-
-.app-header-logout {
-  font-family: var(--font-label);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  padding: 8px 16px;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   border-radius: 999px;
-  border: 1px solid var(--outline-variant);
+  border: none;
   background: transparent;
-  color: var(--on-surface);
+  color: var(--primary);
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  transition: background-color 0.2s;
 }
 
-.app-header-logout:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+.app-header-search:hover {
+  background: var(--surface-container-low);
 }
 
 @media (min-width: 640px) {
@@ -85,10 +101,8 @@
   .app-logo {
     font-size: 18px;
   }
-}
 
-@media (max-width: 480px) {
-  .app-header-greeting {
-    display: none;
+  .app-header-nav {
+    display: flex;
   }
 }
