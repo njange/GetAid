@@ -5,6 +5,11 @@ export const courses = [
     tagline: "Restore breathing and circulation when someone collapses.",
     icon: "cpr",
     category: "Essential Skills",
+    objectives: [
+      { icon: "vital_signs", title: "Assess the Situation", description: "Recognize when someone needs CPR and act within the first critical seconds." },
+      { icon: "front_hand", title: "Perform Compressions", description: "Use the correct hand placement, depth, and rate to keep blood circulating." },
+      { icon: "health_and_safety", title: "Use an AED", description: "Combine compressions, rescue breaths, and a defibrillator to give the best chance of survival." },
+    ],
     lessons: [
       {
         slug: "when-to-start",
@@ -85,6 +90,11 @@ export const courses = [
     tagline: "Clear a blocked airway before oxygen runs out.",
     icon: "choking",
     category: "Essential Skills",
+    objectives: [
+      { icon: "priority_high", title: "Recognize a Blocked Airway", description: "Tell the difference between a partial and full airway obstruction." },
+      { icon: "front_hand", title: "Clear the Airway", description: "Deliver back blows and abdominal thrusts safely and effectively." },
+      { icon: "emergency", title: "Respond If They Collapse", description: "Switch to CPR and keep checking the mouth if the person becomes unresponsive." },
+    ],
     lessons: [
       {
         slug: "recognizing-choking",
@@ -161,6 +171,11 @@ export const courses = [
     tagline: "Cool the burn, protect the skin, know when to escalate.",
     icon: "burns",
     category: "Injury Care",
+    objectives: [
+      { icon: "thermostat", title: "Grade the Burn", description: "Judge severity by size, location, and depth to decide how urgent it is." },
+      { icon: "water_drop", title: "Cool It Properly", description: "Use cool running water for 20 minutes to limit tissue damage." },
+      { icon: "health_and_safety", title: "Know When to Escalate", description: "Spot the warning signs that mean a burn needs emergency care." },
+    ],
     lessons: [
       {
         slug: "assessing-severity",
@@ -237,6 +252,11 @@ export const courses = [
     tagline: "Clean minor cuts and control serious bleeding.",
     icon: "wounds",
     category: "Injury Care",
+    objectives: [
+      { icon: "clean_hands", title: "Clean Minor Wounds", description: "Rinse, dry, and dress small cuts to prevent infection." },
+      { icon: "front_hand", title: "Control Severe Bleeding", description: "Apply firm, direct pressure and a pressure dressing to stop serious blood loss." },
+      { icon: "vital_signs", title: "Watch for Infection", description: "Recognize the signs a wound needs medical attention." },
+    ],
     lessons: [
       {
         slug: "cleaning-a-minor-wound",
@@ -313,6 +333,11 @@ export const courses = [
     tagline: "Rescue safely and support breathing afterward.",
     icon: "drowning",
     category: "Essential Skills",
+    objectives: [
+      { icon: "pool", title: "Rescue Safely", description: "Reach or throw before you swim — protect yourself while helping someone in the water." },
+      { icon: "front_hand", title: "Get Them Out Safely", description: "Support the head and neck and check breathing the moment they're out of the water." },
+      { icon: "health_and_safety", title: "Support Their Breathing", description: "Give rescue breaths first, then follow up with CPR and medical care." },
+    ],
     lessons: [
       {
         slug: "water-rescue-safety",
@@ -387,6 +412,11 @@ export const courses = [
     tagline: "Support the injury and avoid making it worse.",
     icon: "fractures",
     category: "Injury Care",
+    objectives: [
+      { icon: "personal_injury", title: "Spot a Fracture", description: "Recognize deformity, swelling, and loss of function that signal a break." },
+      { icon: "front_hand", title: "Immobilize the Area", description: "Support and splint the injury without trying to realign it." },
+      { icon: "emergency", title: "Know When to Go to the ER", description: "Identify the red flags that mean it's more than a simple sprain." },
+    ],
     lessons: [
       {
         slug: "spotting-a-fracture",

@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import { useProgress } from "../context/ProgressContext";
 import { AppHeader } from "../components/AppHeader";
 import { CourseIcon } from "../components/CourseIcon";
@@ -8,10 +7,8 @@ import { courses } from "../data/courses";
 import "./app.css";
 
 export function CoursesPage() {
-  const { user } = useAuth();
   const { completedCount } = useProgress();
   const [query, setQuery] = useState("");
-  const firstName = user?.name?.split(" ")[0] ?? user?.name;
 
   const totalLessons = courses.reduce((sum, course) => sum + course.lessons.length, 0);
   const completedLessons = courses.reduce(
@@ -42,11 +39,6 @@ export function CoursesPage() {
     <div className="app-page">
       <AppHeader />
       <main className="courses-main">
-        <section className="courses-hero">
-          <h1>Welcome back{firstName ? `, ${firstName}` : ""}</h1>
-          <p>Build skills to save lives.</p>
-        </section>
-
         <section className="courses-search">
           <span className="material-symbols-outlined courses-search-icon" aria-hidden="true">
             search
@@ -90,15 +82,19 @@ export function CoursesPage() {
                 const total = course.lessons.length;
                 const done = Math.min(completedCount(course.slug), total);
                 const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+                const totalMinutes = course.lessons.reduce((sum, l) => sum + l.minutes, 0);
 
                 return (
                   <Link
                     key={course.slug}
-                    to={`/courses/${course.slug}/lessons/${course.lessons[0].slug}`}
+                    to={`/courses/${course.slug}`}
                     className="course-card"
                   >
-                    <div className="course-card-icon">
-                      <CourseIcon name={course.icon} size={24} />
+                    <div className="course-card-thumb">
+                      <CourseIcon name={course.icon} size={40} />
+                      <span className={`course-card-badge${done === total ? " complete" : ""}`}>
+                        {done === total ? "Complete" : "Course"}
+                      </span>
                     </div>
 
                     <div className="course-card-body">
@@ -107,9 +103,7 @@ export function CoursesPage() {
                     </div>
 
                     <div className="course-card-footer">
-                      <span className="course-card-meta">
-                        {done === total ? "Complete" : `${done}/${total} lessons`}
-                      </span>
+                      <span className="course-card-meta">{totalMinutes} MINS</span>
                       <span className="material-symbols-outlined" aria-hidden="true">
                         arrow_forward
                       </span>

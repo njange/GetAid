@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./AppHeader.css";
 
@@ -12,14 +12,17 @@ function initials(name) {
     .join("");
 }
 
-export function AppHeader() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+const NAV_ITEMS = [
+  { label: "Hub", path: "/hub" },
+  { label: "Learning", path: "/", isActive: (pathname) => pathname === "/" || pathname.startsWith("/courses") },
+  { label: "Progress", path: "/progress" },
+  { label: "Profile", path: "/profile" },
+];
 
-  async function handleLogout() {
-    await logout();
-    navigate("/login");
-  }
+export function AppHeader() {
+  const { user } = useAuth();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header className="app-header">
@@ -29,12 +32,32 @@ export function AppHeader() {
         </span>
         <span className="app-logo">First Aid Training</span>
       </Link>
-      <div className="app-header-user">
-        {user && <span className="app-header-greeting">Hi, {user.name?.split(" ")[0] ?? user.name}</span>}
-        <button type="button" className="app-header-logout" onClick={handleLogout}>
-          Log out
-        </button>
-      </div>
+
+      <nav className="app-header-nav">
+        {NAV_ITEMS.map((item) => {
+          const active = item.isActive ? item.isActive(pathname) : pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`app-header-nav-link${active ? " active" : ""}`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </nav>
+
+      <button
+        type="button"
+        className="app-header-search"
+        aria-label="Search first aid topics"
+        onClick={() => navigate("/")}
+      >
+        <span className="material-symbols-outlined" aria-hidden="true">
+          search
+        </span>
+      </button>
     </header>
   );
 }
